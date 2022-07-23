@@ -6,11 +6,11 @@
 #+ Displays Y U no love me?! when receiving a SIGINT signal
 #+ Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
-mkdir ~/var/run/myscript.pid
-trap "I hate the kill command" SIGTERM
-trap "Y U no love me?!" SIGINT
+echo "$$" > /var/run/myscript.pid
+trap "echo 'I hate the kill command'; rm /var/run/myscript.pid; exit" SIGTERM
+trap "rm /var/run/myscript.pid; exit" SIGQUIT
+trap "echo 'Y U no love me?!'" SIGINT
 while true; do
 	echo "To infinity and beyond"
 	sleep 2
 done
-trap 'rm -rf ~/var/run/myscript.pid; exit' SIGQUIT SIGTERM
