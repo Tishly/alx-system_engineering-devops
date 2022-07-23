@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script that use code from "1-list_your_processes" displays lines containing "bash"
+# shellcheck disable=SC2009
+ps axuf | grep "bash"
