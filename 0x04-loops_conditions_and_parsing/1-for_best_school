@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# A script that displays "Best School" 10 times
+printf 'Best School\n%.0s' {1..10}
