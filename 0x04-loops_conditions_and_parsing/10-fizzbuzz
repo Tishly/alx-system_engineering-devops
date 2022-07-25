@@ -5,24 +5,24 @@
 #+ Displays Buzz when the number is a multiple of 5
 #+ Otherwise, displays the number
 #+ In a list format
-i=1
-while [ $i -le 100 ]
+i=0
+while [ $i -lt 100 ]
 do
-	case $i in
+	((i++))
 
-	"(($i/15))")
+	if ! (($i%15))
 	then
-		echo "FizzBuzz"
-		;;
-	"(($i/3))")
-	then
-		echo "Fizz"
-		;;
-	"(($i/5))")
-        then
-                echo "Buzz"
-                ;;
-	esac
+	   echo "FizzBuzz"
 
-	echo "$i"
+	elif ! (($i%3))
+	then
+	   echo "Fizz"
+
+   	elif ! (($i%5))
+	then
+           echo "Buzz"
+ 
+	else
+	   echo "$i"
+	fi
 done
