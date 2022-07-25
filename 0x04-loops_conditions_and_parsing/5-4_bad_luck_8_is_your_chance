@@ -15,6 +15,7 @@ do
 	then
 	    echo "good luck"
 	    continue
-	fi
+    	else
 	echo "Best School"
+	fi
 done
