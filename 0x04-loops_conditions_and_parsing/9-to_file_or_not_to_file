@@ -15,13 +15,15 @@ i="school"
 if [ -e "$i" ]; then
 	echo "$i file exists"
 	if [ -s "$i" ]; then
-		echo "School file is not empty"
+	   echo "school file is not empty"
 	else
-		echo "School file is empty"
+	   echo "school file is empty"
 	fi
+
 	if [ -f "$i" ]; then
-		echo "School is a regular file"
+	   echo "school is a regular file"
 	fi
+
 else
-	echo "School file does not exist"
+	echo "school file does not exist"
 fi
