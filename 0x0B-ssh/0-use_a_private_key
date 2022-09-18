@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-ssh 18618-web-01
+# Script that uses ssh to connect to server
+# Private key applied to user 'ubuntu'
+ssh -i ~/.ssh/id_rsa ubuntu@44.192.48.177
