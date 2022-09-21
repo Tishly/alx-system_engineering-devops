@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A script to installand configure Nginx on web01 server
+
+sudo apt-get update
+sudo apt-get install nginx
+echo 'Hello World' > /var/www/html/index.nginx-debian.html
+service nginx restart
