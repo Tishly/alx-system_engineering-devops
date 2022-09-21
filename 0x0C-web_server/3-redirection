@@ -8,13 +8,13 @@ echo "server {
 		listen 80 default_server;
 	        listen [::]:80 default_server;
 
-		root /var/www/html;
+		root /var/www/theweirdnerd.tech/html;
 		index index.html index.htm index.nginx-debian.html;
 
-		server_name _;
+		server_name theweirdnerd.tech www.theweirdnerd.tech;
 
-		location /redirect_me {
-			redirect 301 https://theweirdnerd.tech;
+		if (\$request_filename ~ redirect_me) {
+			rewrite ^ https://theweirdnerd.tech permanent;
 		}
 	}" > /etc/nginx/sites-available/default
-sudo service nginx restart
+service nginx restart
