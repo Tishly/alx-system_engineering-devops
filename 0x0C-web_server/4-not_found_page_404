@@ -8,7 +8,6 @@ echo -e "Ceci n'est pas une page" > /var/www/html/error-page.html
 echo "server {
 		listen 80 default_server;
 	        listen [::]:80 default_server;
-		include snippets/error-page.conf;
 
 		root /var/www/theweirdnerd.tech/html;
 		index index.html index.htm index.nginx-debian.html;
