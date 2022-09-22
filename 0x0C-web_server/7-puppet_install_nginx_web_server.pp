@@ -1,7 +1,7 @@
 # Installing and configuring Nginx using puppet manifest
 package { 'nginx':
-  require => Exec['apt-update'],
-  ensure  => installed,}
+  ensure  => installed,
+}
 
 file_line { 'aaaaa':
   ensure   => 'present',
@@ -16,5 +16,5 @@ file { '/var/www/html/index.html':
 
 service { 'nginx':
   ensure => running,
-  require => package['nginx']'
+  require => package['nginx']',
 }
