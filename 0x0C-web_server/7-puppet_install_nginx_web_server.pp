@@ -15,7 +15,12 @@ file { '/var/www/html/index.html':
 }
 
 service { 'nginx':
-  ensure  => running,
-  require => package["nginx"]',
-  listen_port = 80
+  ensure      => running,
+  require     => package["nginx"],
+  listen_port => 80
+}
+
+exec { 'Start server':
+  command => 'service nginx restart',
+  path    => '/usr/bin:/usr/sbin:/bin'
 }
