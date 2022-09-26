@@ -1,20 +1,20 @@
 # Installing and configuring Nginx using puppet manifest
 
 package { 'nginx':
-  ensure  => installed
+  ensure  => installed,
 }
 
-file_line { 'aaaaa':
+file_line { 'lint nginx':
   ensure  => 'present',
   path    => '/etc/nginx/sites-available/default',
-  line    => 'rewrite ^/redirect_me https://theweirdnerd.tech permanent;'
+  line    => 'rewrite ^/redirect_me https://theweirdnerd.tech permanent;',
 }
 
 file { '/var/www/html/index.html':
-  content => "Hello World!"
+  content => 'Hello World!',
 }
 
 service { 'nginx':
   ensure  => running,
-  require => package["nginx"]
+  require => Package['nginx'],
 }
