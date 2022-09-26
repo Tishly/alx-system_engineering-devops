@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# A script to installand configure Nginx on web01 server
+# A script to install and configure Nginx on web01 server
 
 sudo apt-get update
 sudo apt-get -y install nginx
