@@ -1,15 +1,15 @@
 # Nginx server installation and configuration
 
-exec { 'apt-get-update':
+exec {'apt-get-update':
   command => '/usr/bin/apt-get update',
 }
 
-package { 'nginx':
+package {'nginx':
   ensure  => installed,
   require => Exec['apt-get-update'],
 }
 
-file_line { 'un':
+file_line {'un':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;',
@@ -17,7 +17,7 @@ file_line { 'un':
   require => Package['nginx'],
 }
 
-file_line { 'duo':
+file_line {'duo':
   ensure  => 'present',
   path    => '/etc/nginx/sites-available/default',
   after   => 'listen 80 default_server;',
@@ -25,12 +25,12 @@ file_line { 'duo':
   require => Package['nginx'],
 }
 
-file { '/var/www/html/index.html':
+file {'/var/www/html/index.html':
   content => 'Hello World!',
   require => Package['nginx'],
 }
 
-service { 'nginx':
+service {'nginx':
   ensure  => running,
   require => package['nginx'],
 }
