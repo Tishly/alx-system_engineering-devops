@@ -3,15 +3,15 @@
 
 sudo apt-get update
 sudo apt-get -y install nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.html
 echo "server {
 		listen 80 default_server;
 	        listen [::]:80 default_server;
 
-		root /var/www/theweirdnerd.tech/html;
+		root /var/www/html;
 		index index.html index.htm index.nginx-debian.html;
 
-		server_name theweirdnerd.tech www.theweirdnerd.tech;
+		server_name _;
 
 		if (\$request_filename ~ redirect_me) {
 			rewrite ^ https://theweirdnerd.tech permanent;
