@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Script that checks info about subdomains.
+
+DigDomain () {
+	DOMAIN_RECORD=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | grep -v 'ANSWER SECTION:')
+	REC_TYPE=$(echo "$DOMAIN_RECORD" | awk '{print $4}')
+	IP_ADDRESS=$(echo "$DOMAIN_RECORD" | awk '{print $5}')
+	echo "The subdomain $2 is a $REC_TYPE record and points to $IP_ADDRESS"
+}
+
+if [ $# == 2 ]
+then
+	DigDomain "$1" "$2"
+elif [ $# == 1 ]
+then
+	DigDomain "$1" "www"
+	DigDomain "$1" "lb-01"
+	DigDomain "$1" "web-01"
+	DigDomain "$1" "web-02"
+fi
