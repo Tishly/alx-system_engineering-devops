@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# A script that configures Nginx to listen on port 80
+echo -e "sudo sed -i 's/8080/80/' /etc/nginx/nginx.conf
+sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
+pgrep nginx -o > /run/nginx.pid\nnginx -s reload\necho '' > /run/nginx.pid" | bash
