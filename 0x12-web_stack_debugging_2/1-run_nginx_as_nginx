@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script to change nginx privileges
+
+echo "user nginx_user" | sudo tee -a /home/ubuntu/nginx.conf
