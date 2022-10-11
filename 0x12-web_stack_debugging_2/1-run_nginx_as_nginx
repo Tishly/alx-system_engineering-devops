@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # Script to change nginx privileges
 
-echo "user nginx_user" | sudo tee -a /home/ubuntu/nginx.conf
+sed -i "s/#user.+/user nginx/g" /etc/nginx/nginx.conf
+echo "listen 8080" >> /etc/nginx/nginx.conf
+echo "listen \[::\]:8080" >> /etc/nginx/nginx.conf
+pgrep nginx -o > run/nginx.pid
+sudo nginx -s reload
