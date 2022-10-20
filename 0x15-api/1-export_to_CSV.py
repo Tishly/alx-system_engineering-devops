@@ -46,5 +46,6 @@ def gatherData():
         file = csv.writer(csvfile, delimiter=','
                           quotechar="''", quoting=csv.QOUTE_ALL)
 
+
 if __name__ == '__main__':
     gatherData()
