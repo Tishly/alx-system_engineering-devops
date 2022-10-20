@@ -6,6 +6,7 @@ returns information about his/her TODO list progress
 import requests as req
 from sys import argv as arg
 
+
 def gatherData():
     '''
     Gets Data from API
@@ -21,11 +22,11 @@ def gatherData():
             break
     for todo in ListOfTodos:
         if todo.get('userId') == int(arg[1]):
-           TotalTasks += 1
-           if todo.get('completed') is True:
-               TotalCompletedTasks += 1
-               TaskDescription.append(todo.get('title'))
-     print('Employee {} is done with tasks({}/{}):'.format(Employee,
+            TotalTasks += 1
+            if todo.get('completed') is True:
+                TotalCompletedTasks += 1
+                TaskDescription.append(todo.get('title'))
+    print('Employee {} is done with tasks({}/{}):'.format(Employee,
                                                            TotalCompletedTasks,
                                                            TotalTasks))
 
