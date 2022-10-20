@@ -27,11 +27,12 @@ def gatherData():
                 TotalCompletedTasks += 1
                 TaskDescription.append(todo.get('title'))
     print('Employee {} is done with tasks({}/{}):'.format(Employee,
-                                                           TotalCompletedTasks,
-                                                           TotalTasks))
+                                                          TotalCompletedTasks,
+                                                          TotalTasks))
 
     for task in TaskDescription:
         print('\t {}'.format(task))
+
 
 if __name__ == '__main__':
     gatherData()
